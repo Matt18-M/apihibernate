@@ -10,25 +10,28 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "peliculas")
 public class Pelicula {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    @Column(nullable = false)
-    private String nombre;
-    
-    @Column(nullable = false)
-    private String director;
-    
-    @Column(nullable = false)
-    private String genero;
-    
-    @Column(nullable = false)
-    private int duracion;
-    
-    @Column(nullable = false)
-    private boolean disponible;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@Column(nullable = false)
+	private String nombre;
+
+	@Column(nullable = false)
+	private String director;
+
+	@Column(nullable = false)
+	private String genero;
+
+	@Column(nullable = false)
+	private int duracion;
+
+	@Column(nullable = false)
+	private boolean disponible;
+
+	@Column(nullable = false)
+	private double calificacion;
 
 	public Pelicula() {
 		super();
@@ -42,6 +45,19 @@ public class Pelicula {
 		this.genero = genero;
 		this.duracion = duracion;
 		this.disponible = disponible;
+	}
+
+	
+	public Pelicula(Long id, String nombre, String director, String genero, int duracion, boolean disponible,
+			double calificacion) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.director = director;
+		this.genero = genero;
+		this.duracion = duracion;
+		this.disponible = disponible;
+		this.calificacion = calificacion;
 	}
 
 	public Long getId() {
@@ -92,13 +108,18 @@ public class Pelicula {
 		this.disponible = disponible;
 	}
 
+	public double getCalificacion() {
+		return calificacion;
+	}
+
+	public void setCalificacion(double calificacion) {
+		this.calificacion = calificacion;
+	}
+
 	@Override
 	public String toString() {
 		return "Pelicula [id=" + id + ", nombre=" + nombre + ", director=" + director + ", genero=" + genero
-				+ ", duracion=" + duracion + ", disponible=" + disponible + "]";
+				+ ", duracion=" + duracion + ", disponible=" + disponible + ", calificacion=" + calificacion + "]";
 	}
-    
-    
-    
-	
+
 }
